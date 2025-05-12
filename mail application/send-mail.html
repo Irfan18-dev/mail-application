@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Send Mail - Mail App</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
+      background-size: cover;
+      -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+    }
+  
+    .card {
+      background-color: rgba(255, 255, 255, 0.95);
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+  </style>
+  
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">MailApp</a>
+      <button title="navbar"class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="send-mail.html">Send Mail</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="sent-mails.php">Sent Mails</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-danger" href="logout.php">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Send Mail Form -->
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card shadow">
+          <div class="card-header bg-primary text-white text-center">
+            <h4>Send Mail</h4>
+          </div>
+          <div class="card-body">
+            <!-- Success Message (after sending email) -->
+            <div id="success-message" class="alert alert-success d-none">Mail sent successfully!</div>
+
+            <!-- Send Mail Form -->
+            <form id="send-mail-form" method="POST">
+              <div class="mb-3">
+                <label for="receiver" class="form-label">To (Email)</label>
+                <input type="email" name="receiver" id="receiver" class="form-control" required>
+              </div>
+              <div class="mb-3">
+                <label for="subject" class="form-label">Subject</label>
+                <input type="text" name="subject" id="subject" class="form-control" required>
+              </div>
+              <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea name="message" id="message" rows="4" class="form-control" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary w-100">Send</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById('send-mail-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      // Simulate sending the email
+      document.getElementById('success-message').classList.remove('d-none');
+
+      // Reset the form fields after submission
+      document.getElementById('send-mail-form').reset();
+    });
+  </script>
+</body>
+</html>
